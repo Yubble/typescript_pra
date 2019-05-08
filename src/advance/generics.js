@@ -14,3 +14,17 @@ function swap(tuple) {
 }
 var varp = swap([7, 'seven']);
 console.log(varp);
+function loggin(arg) {
+    console.log(arg.length);
+    return arg;
+}
+loggin('aafliwr');
+// 多个类型参数之间也可以互相约束
+function copyFields(target, source) {
+    for (var id in source) {
+        target[id] = source[id];
+    }
+    return target;
+}
+var x = { a: 1, b: 2, c: 3, d: 4 };
+copyFields(x, { b: 10, d: 20 });

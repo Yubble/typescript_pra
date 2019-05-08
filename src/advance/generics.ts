@@ -17,3 +17,27 @@ function swap<T, U>(tuple: [T, U]): [U, T] {
 
 let varp = swap([7, 'seven']);
 console.log(varp)
+
+// 泛型约束
+// 单独的泛型无法确定类型，导致无法使用特别方法，所以可以用接口来做约束
+interface Lengthwise {
+  length: number;
+}
+function loggin<T extends Lengthwise>(arg: T): T {
+  console.log(arg.length)
+  return arg;
+}
+
+loggin('aafliwr')
+
+// 多个类型参数之间也可以互相约束
+function copyFields<T extends U, U>(target: T, source: U): T {
+  for (let id in source) {
+    target[id] = (<T>source)[id];
+  }
+  return target;
+}
+
+let x = {a: 1, b: 2, c: 3, d: 4};
+
+copyFields(x, {b: 10, d: 20})
