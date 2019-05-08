@@ -7,8 +7,11 @@ function createArray<T>(length: number, value: T): Array<T> {
   return result;
 }
 
-let scs = createArray(3, 'x');
+// 泛型是在函数调用的时候去标准化传入的参数类型，用T去替代
+let scs = createArray<string>(3, 'x');
 console.log(scs)
+let scx = createArray<number>(4, 2);
+console.log(scx)
 
 // 多类型参数
 function swap<T, U>(tuple: [T, U]): [U, T] {

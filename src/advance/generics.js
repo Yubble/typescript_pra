@@ -6,8 +6,10 @@ function createArray(length, value) {
     }
     return result;
 }
-var scs = createArray(3, 'x');
-console.log(scs);
+// let scs = createArray<string>(3, 'x');
+// console.log(scs)
+var scx = createArray(4, 2);
+console.log(scx);
 // 多类型参数
 function swap(tuple) {
     return [tuple[1], tuple[0]];
@@ -28,3 +30,4 @@ function copyFields(target, source) {
 }
 var x = { a: 1, b: 2, c: 3, d: 4 };
 copyFields(x, { b: 10, d: 20 });
+// 

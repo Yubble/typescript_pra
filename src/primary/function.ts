@@ -6,8 +6,12 @@ function sumDeclar(x: number, y:number): number {
 const resDec: number = sumDeclar(3, 4)
 console.log(resDec)
 
-// 函数表达式
+// 函数表达式，需要在sumExpress: 加上函数类型(x: number, y: number) => number
 const sumExpress: (x: number, y: number) => number = function (x: number, y: number): number {
+  return x + y;
+}
+// 如果这样写恶心的话也可以借用ts的类型推断
+const sumExpressSim: (x: number, y: number) => number = function (x, y) {
   return x + y;
 }
 
@@ -54,7 +58,7 @@ function surplusParams(a, ...items: any): void {
 surplusParams('sr', 3, 41)
 
 
-// 重载
+// 重载 不可以用|，这样无法保证x和y是同一种类型
 function reverse(x: number | string): number | string {
   if (typeof x === 'number') {
     return Number(x.toString().split('').reverse().join(''));
@@ -64,3 +68,19 @@ function reverse(x: number | string): number | string {
 }
 
 console.log(reverse('123456'))
+
+// 只有使用|的时候才能用类型断言
+function reloadFn(x: number, y: number): number;
+function reloadFn(x: string, y: string): string;
+function reloadFn(x: any, y: any): any {
+  if (typeof x == 'number') {
+    console.log('输入了数字，返回123')
+    return 123
+  } else if (<string>x || <string>y) {
+    console.log("输入了字符串，返回'123")
+    return '123'
+  }
+}
+console.log(reloadFn(34, 22))
+console.log(reloadFn('fs', '32'))
+
