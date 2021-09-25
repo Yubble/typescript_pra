@@ -1,3 +1,9 @@
+/*
+ * @Name: 
+ * @Description: 
+ * @Author: 刘燕保
+ * @Date: 2021-09-24 19:16:05
+ */
 // 普通泛型
 function createArray<T>(length: number, value: T): Array<T> {
   let result: T[] = [];
@@ -7,11 +13,18 @@ function createArray<T>(length: number, value: T): Array<T> {
   return result;
 }
 
+console.log('-------- 普通泛型1 ---------')
+
 // 泛型是在函数调用的时候去标准化传入的参数类型，用T去替代
+// 多用于固定入参和出参需要同类型的情况
 let scs = createArray<string>(3, 'x');
 console.log(scs)
 let scx = createArray<number>(4, 2);
 console.log(scx)
+
+console.log('-------- 普通泛型1 ---------')
+
+
 
 // 多类型参数
 function swap<T, U>(tuple: [T, U]): [U, T] {

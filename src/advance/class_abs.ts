@@ -1,7 +1,13 @@
+/*
+ * @Name: 
+ * @Description: 
+ * @Author: 刘燕保
+ * @Date: 2021-09-24 19:16:05
+ */
 // 抽象类
 abstract class absAnimal {
   public name: string;
-  public constructor(name) {
+  public constructor(name: any) {
     this.name = name
   }
   public eat(): void { console.log('我会吃吃吃吃') };
@@ -9,7 +15,7 @@ abstract class absAnimal {
 }
 
 class Cat extends absAnimal {
-  public constructor(name) {
+  public constructor(name: any) {
     super(name)
   }
   public sayHi() {
@@ -20,7 +26,7 @@ class Cat extends absAnimal {
   }
 }
 
-let cat = new Cat('Tom')
+let cat = new Cat('TTT')
 cat.sayHi()
 cat.attack()
 cat.eat()

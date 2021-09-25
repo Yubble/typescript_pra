@@ -1,3 +1,9 @@
+/*
+ * @Name: 
+ * @Description: 
+ * @Author: 刘燕保
+ * @Date: 2021-09-24 19:16:05
+ */
 // 使用接口来定义对象的类型
 // 对行为抽象
 
@@ -32,6 +38,7 @@ interface DoorAlarm extends Alarm {
   doorWhistle(): string
 }
 
+// 如果使用接口加固这个simObj对象，则对象必须返回接口中定义的两个属性
 let simObj: DoorAlarm = {
   doorWhistle() {
     return '点击了防盗门铃'
@@ -41,8 +48,17 @@ let simObj: DoorAlarm = {
   }
 }
 
-class Car implements Alarm {
-  public constructor() {}
+interface mobileAlarm {
+  brand: string,
+  interAlarm(): void
+}
+
+// 类继承接口则需要声明接口中所有的方法
+class Car implements mobileAlarm {
+  public brand = 'str'; // 如果没有brand这个公有属性，这个类不成立
+  public constructor() {
+  }
+
   public interAlarm() {
     console.log('触发了警报')
   }
