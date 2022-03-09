@@ -1,3 +1,9 @@
+/*
+ * @Name: 
+ * @Description: 
+ * @Author: 刘燕保
+ * @Date: 2021-12-08 12:10:16
+ */
 // 函数声明
 function sumDeclar(x: number, y:number): number {
   return x + y;
@@ -84,3 +90,11 @@ function reloadFn(x: any, y: any): any {
 console.log(reloadFn(34, 22))
 console.log(reloadFn('fs', '32'))
 
+// 函数解构
+function add (
+  { first, second }: { first: number, second: number }
+): number {
+  return first + second
+}
+
+const total = add({ first: 1, second: 2 })

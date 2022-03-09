@@ -19,6 +19,8 @@ class Cat extends absAnimal {
     super(name)
   }
   public sayHi() {
+    // super同时指向父类，如果想调用父类某个方法，则可以使用super
+    super.eat()
     console.log('Cat name is ', this.name)
   }
   public attack() {

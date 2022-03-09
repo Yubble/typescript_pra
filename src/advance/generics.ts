@@ -58,4 +58,10 @@ let x = {a: 1, b: 2, c: 3, d: 4};
 
 copyFields(x, {b: 10, d: 20})
 
-// 
+// 泛型数组
+// 如果参数内容包括数组，参数中的泛型需要加上[]或者Array<T>，但是函数声明时的泛型只需要用一个T来声明即可
+function map<T>(params: T[]) {
+  return params
+}
+
+map<string>(['123'])
